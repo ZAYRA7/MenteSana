@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MenteSana - Bienestar Psicológico Estudiantil</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Fuente Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <!-- ========== BARRA SUPERIOR ========== -->
+    <div class="barra-superior py-2">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6 col-sm-8">
+                    <p class="mb-0 small">
+                        <i class="fas fa-heart me-1"></i> Plataforma de Atención Psicológica Estudiantil
+                    </p>
+                </div>
+                <div class="col-md-6 col-sm-4 text-end">
+                    <a href="formularios.html" class="btn btn-sm btn-light me-1">Iniciar Sesión</a>
+                    <a href="formularios.html" class="btn btn-sm btn-primary">Registrarse</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== NAVBAR / MENÚ RESPONSIVO ========== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primario py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-brain me-2"></i>MenteSana
+            </a>
+            
+            <!-- Botón Menú Hamburguesa (aparece en móvil) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacion" aria-controls="menuNavegacion" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Enlaces de Navegación -->
+            <div class="collapse navbar-collapse" id="menuNavegacion">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== SECCIÓN HERO CON DEGRADADO ========== -->
+    <section class="hero py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                    <h1 class="display-4 fw-bold mb-4">Tu bienestar mental importa</h1>
+                    <p class="lead mb-4">Espacio seguro para tu salud emocional. Accede a orientación, citas y seguimiento psicológico de forma sencilla y confidencial.</p>
+                    <a href="servicios.html" class="btn btn-light btn-lg me-2">Agendar Cita</a>
+                    <a href="nosotros.html" class="btn btn-outline-light btn-lg">Conocer Más</a>
+                </div>
+                <div class="col-lg-6 col-md-12 text-center">
+                    <i class="fas fa-leaf fa-10x icono-hero"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TARJETAS DE SERVICIOS ========== -->
+    <section class="py-5 bg-fondo-suave">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nuestros Servicios</h2>
+                <p class="text-muted">Atención integral para tu bienestar emocional</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Tarjeta 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-servicio h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-user-md fa-3x icono-servicio mb-3"></i>
+                            <h5 class="card-title fw-bold">Atención Psicológica</h5>
+                            <p class="card-text">Consulta con profesionales especializados en salud mental.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-servicio h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-calendar-check fa-3x icono-servicio mb-3"></i>
+                            <h5 class="card-title fw-bold">Reserva de Citas</h5>
+                            <p class="card-text">Elige horarios disponibles y agenda tu cita fácilmente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-servicio h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-heartbeat fa-3x icono-servicio mb-3"></i>
+                            <h5 class="card-title fw-bold">Registro Emocional</h5>
+                            <p class="card-text">Lleva un diario de tu estado de ánimo y progreso personal.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-servicio h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-shield-alt fa-3x icono-servicio mb-3"></i>
+                            <h5 class="card-title fw-bold">Confidencialidad</h5>
+                            <p class="card-text">Tus datos y sesiones protegidos con privacidad total.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BANNER ========== -->
+    <section class="banner py-5">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-3">¿Necesitas ayuda? Estamos aquí para ti</h3>
+            <p class="mb-4 lead">No estás solo. Solicita atención hoy mismo.</p>
+            <a href="contacto.html" class="btn btn-light btn-lg">
+                <i class="fas fa-headset me-2"></i>Contáctanos
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== PIE DE PÁGINA / FOOTER 4 COLUMNAS ========== -->
+    <footer class="pie-pagina py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Columna 1: Nombre -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-brain me-2"></i>MenteSana</h5>
+                    <p class="small">Plataforma de bienestar y atención psicológica estudiantil.</p>
+                </div>
+
+                <!-- Columna 2: Navegación -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Navegación</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="index.html" class="text-decoration-none text-light">Inicio</a></li>
+                        <li><a href="nosotros.html" class="text-decoration-none text-light">Nosotros</a></li>
+                        <li><a href="servicios.html" class="text-decoration-none text-light">Servicios</a></li>
+                        <li><a href="contacto.html" class="text-decoration-none text-light">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Atención -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Atención</h5>
+                    <ul class="list-unstyled small">
+                        <li><i class="fas fa-clock me-1"></i>Lun - Vie: 8:00 - 18:00</li>
+                        <li><i class="fas fa-envelope me-1"></i> contacto@mentesana.edu</li>
+                        <li><i class="fas fa-phone me-1"></i> +52 771 123 4567</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Institución -->
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Institución</h5>
+                    <ul class="list-unstyled small">
+                        <li>Universidad Tecnológica</li>
+                        <li>Departamento de Salud Mental</li>
+                        <li>Av. Universidad S/N, Hidalgo</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            <div class="text-center small">
+                <p>&copy; 2026 MenteSana. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 SOLO para funcionalidad del menú (sin escribir JS nosotros) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
