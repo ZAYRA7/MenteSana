@@ -1,146 +1,118 @@
-/* GUÍA DE ESTILO — MENTESANA*/
+/* ESTILOS - MENTESANA
+   Barra de navegación responsiva + Offcanvas */
 
-/* PALETA DE COLORES*/
 :root {
-    --color-primario: #5B21B6;     
-    --color-secundario: #3B82F6;  
-    --color-terciario: #8B5CF6;     
-    --color-fondo: #F3F4F6;        
-    --color-fondo-alto: #EDE9FE;    
-    --color-texto: #1F2937;         
-    --color-texto-claro: #6B7280;   
-    --color-blanco: #FFFFFF;
-    --color-exito: #10B981;
-    --color-alerta: #F59E0B;
-    --color-peligro: #EF4444;
-}
-
-/* REGLAS GENERALES */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --color-primario: #4B0082;
+    --color-secundario: #6A5ACD;
+    --color-acento: #9370DB;
+    --color-claro: #F8F9FA;
+    --color-texto: #333333;
+    --color-fondo: #FFFFFF;
+    --fuente-principal: 'Roboto', sans-serif;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--fuente-principal);
     color: var(--color-texto);
     background-color: var(--color-fondo);
-    line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    font-family: 'Roboto', sans-serif;
-}
-
-p {
-    font-weight: 400;
 }
 
 /* BARRA SUPERIOR */
 .barra-superior {
-    background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
-    color: var(--color-blanco);
+    background-color: #2c0052;
+    color: #ffffff;
 }
 
-/* NAVBAR*/
+.barra-superior a {
+    text-decoration: none;
+}
+
+/* NAVBAR PRINCIPAL */
 .bg-primario {
-    background: linear-gradient(90deg, var(--color-primario), var(--color-terciario)) !important;
+    background-color: var(--color-primario) !important;
 }
 
-.navbar-dark .nav-link {
-    color: rgba(255, 255, 255, 0.9) !important;
-    transition: color 0.3s ease;
+.navbar-brand {
+    font-size: 1.4rem;
 }
 
-.navbar-dark .nav-link:hover,
-.navbar-dark .nav-link.active {
-    color: var(--color-blanco) !important;
-    border-bottom: 2px solid var(--color-blanco);
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
-/*  SECCIÓN HERO — DEGRADADO*/
-.hero {
-    background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-secundario) 100%);
-    color: var(--color-blanco);
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
-.icono-hero {
-    color: rgba(255, 255, 255, 0.25);
-}
-
-/* FONDO SUAVE */
-.bg-fondo-suave {
-    background-color: var(--color-fondo-alto);
-}
-
-/* TARJETAS DE SERVICIOS */
-.card-servicio {
+/* BOTÓN HAMBURGUESA */
+.navbar-toggler {
     border: none;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(91, 33, 182, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: var(--color-blanco);
+    outline: none;
 }
 
-.card-servicio:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(91, 33, 182, 0.15);
+.navbar-toggler:focus {
+    box-shadow: none;
 }
 
-.icono-servicio {
-    color: var(--color-terciario);
-}
-
-/* BANNER */
-.banner {
-    background: linear-gradient(135deg, var(--color-secundario) 0%, var(--color-primario) 100%);
-    color: var(--color-blanco);
-}
-
-/* PIE DE PÁGINA / FOOTER */
-.pie-pagina {
+/* MENÚ OFFCANVAS */
+.offcanvas {
     background-color: var(--color-primario);
-    color: var(--color-blanco);
+}
+
+.offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.offcanvas-title {
+    color: #ffffff;
+}
+
+.offcanvas-body .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.offcanvas-body .nav-link:hover,
+.offcanvas-body .nav-link.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* PIE DE PÁGINA */
+.pie-pagina {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    margin-top: auto;
+}
+
+.pie-pagina h5 {
+    color: var(--color-acento);
 }
 
 .pie-pagina a:hover {
-    color: var(--color-terciario) !important;
-    text-decoration: underline !important;
+    color: var(--color-acento) !important;
 }
 
-/* BOTONES PERSONALIZADOS */
-.btn-primary {
-    background-color: var(--color-primario);
-    border-color: var(--color-primario);
+/* AJUSTES GENERALES */
+section.py-5 {
+    min-height: 60vh;
 }
 
-.btn-primary:hover {
-    background-color: var(--color-terciario);
-    border-color: var(--color-terciario);
+html, body {
+    height: 100%;
 }
 
-.btn-outline-light:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: var(--color-blanco);
+body {
+    display: flex;
+    flex-direction: column;
 }
 
-/* RESPONSIVIDAD */
-@media (max-width: 768px) {
-    .hero {
-        text-align: center;
-        padding: 3rem 0;
-    }
-
-    .display-4 {
-        font-size: 2rem;
-    }
-
-    .icono-hero {
-        font-size: 6rem !important;
-    }
+section {
+    flex: 1;
 }
