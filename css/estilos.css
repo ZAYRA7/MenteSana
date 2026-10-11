@@ -1,0 +1,146 @@
+/* GUÍA DE ESTILO — MENTESANA*/
+
+/* PALETA DE COLORES*/
+:root {
+    --color-primario: #5B21B6;     
+    --color-secundario: #3B82F6;  
+    --color-terciario: #8B5CF6;     
+    --color-fondo: #F3F4F6;        
+    --color-fondo-alto: #EDE9FE;    
+    --color-texto: #1F2937;         
+    --color-texto-claro: #6B7280;   
+    --color-blanco: #FFFFFF;
+    --color-exito: #10B981;
+    --color-alerta: #F59E0B;
+    --color-peligro: #EF4444;
+}
+
+/* REGLAS GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-weight: 400;
+}
+
+/* BARRA SUPERIOR */
+.barra-superior {
+    background: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+    color: var(--color-blanco);
+}
+
+/* NAVBAR*/
+.bg-primario {
+    background: linear-gradient(90deg, var(--color-primario), var(--color-terciario)) !important;
+}
+
+.navbar-dark .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .nav-link:hover,
+.navbar-dark .nav-link.active {
+    color: var(--color-blanco) !important;
+    border-bottom: 2px solid var(--color-blanco);
+}
+
+/*  SECCIÓN HERO — DEGRADADO*/
+.hero {
+    background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-secundario) 100%);
+    color: var(--color-blanco);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.icono-hero {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+/* FONDO SUAVE */
+.bg-fondo-suave {
+    background-color: var(--color-fondo-alto);
+}
+
+/* TARJETAS DE SERVICIOS */
+.card-servicio {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(91, 33, 182, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--color-blanco);
+}
+
+.card-servicio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(91, 33, 182, 0.15);
+}
+
+.icono-servicio {
+    color: var(--color-terciario);
+}
+
+/* BANNER */
+.banner {
+    background: linear-gradient(135deg, var(--color-secundario) 0%, var(--color-primario) 100%);
+    color: var(--color-blanco);
+}
+
+/* PIE DE PÁGINA / FOOTER */
+.pie-pagina {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.pie-pagina a:hover {
+    color: var(--color-terciario) !important;
+    text-decoration: underline !important;
+}
+
+/* BOTONES PERSONALIZADOS */
+.btn-primary {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-terciario);
+    border-color: var(--color-terciario);
+}
+
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--color-blanco);
+}
+
+/* RESPONSIVIDAD */
+@media (max-width: 768px) {
+    .hero {
+        text-align: center;
+        padding: 3rem 0;
+    }
+
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    .icono-hero {
+        font-size: 6rem !important;
+    }
+}
