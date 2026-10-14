@@ -10,20 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Página: alumnos/inicio-alumno.html
     // ============================================================
     
-    // Inicializar el toast de registro emocional si existe en la página
     const toastElement = document.getElementById('toastNotificacion');
     let toastNotificacion;
     if (toastElement) {
         toastNotificacion = new bootstrap.Toast(toastElement, { delay: 3000 });
     }
 
-    // Usamos querySelectorAll porque hay varios botones con la misma clase .mood-btn.
     const moodButtons = document.querySelectorAll('.mood-btn');
     const errorEmocional = document.getElementById('errorEmocional');
     const fechaInput = document.getElementById('fechaRegistro');
     let estadoSeleccionado = null;
 
-    // Función con nombre para manejar la selección del estado emocional
     function seleccionarEstado(event) {
         moodButtons.forEach(function(btn) {
             btn.classList.remove('selected');
@@ -37,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', seleccionarEstado);
     });
 
-    // Función con nombre para validar el formulario
     function validarFormulario(event) {
         event.preventDefault();
         let esValido = true;
@@ -94,53 +90,70 @@ document.addEventListener('DOMContentLoaded', function() {
     // Página: alumnos/citas-alumno.html
     // ============================================================
 
-    // Inicializar el toast de cancelación si existe en la página
     const toastCancelacionElement = document.getElementById('toastCancelacion');
     let toastCancelacion;
     if (toastCancelacionElement) {
         toastCancelacion = new bootstrap.Toast(toastCancelacionElement, { delay: 3000 });
     }
 
-    // Usamos querySelector porque es un elemento único en la página.
     const btnCancelarCita = document.querySelector('.btn-cancelar-cita');
     const btnConfirmarCancelacion = document.getElementById('btnConfirmarCancelacion');
     let filaAEliminar = null;
 
-    // Función con nombre para preparar la cancelación (cargar datos en el modal)
     function prepararCancelacion(event) {
         const boton = event.currentTarget;
-        // Guardamos la fila (tr) que contiene el botón para eliminarla después
         filaAEliminar = boton.closest('tr');
-        // Cargamos los datos en el modal usando dataset
         document.getElementById('cancelarEspecialista').textContent = boton.dataset.especialista;
         document.getElementById('cancelarFecha').textContent = boton.dataset.fecha;
         document.getElementById('cancelarHorario').textContent = boton.dataset.horario;
     }
 
-    // Función con nombre para confirmar la cancelación
     function confirmarCancelacion() {
         if (filaAEliminar) {
-            // Eliminamos la fila de la tabla
             filaAEliminar.remove();
             filaAEliminar = null;
 
-            // Cerramos el modal
             const modal = bootstrap.Modal.getInstance(document.getElementById('modalCancelarCita'));
             if (modal) modal.hide();
 
-            // Mostramos el toast de confirmación
             if (toastCancelacion) {
                 toastCancelacion.show();
             }
         }
     }
 
-    // Escuchamos los eventos (addEventListener, NO onclick)
     if (btnCancelarCita) {
         btnCancelarCita.addEventListener('click', prepararCancelacion);
     }
     if (btnConfirmarCancelacion) {
         btnConfirmarCancelacion.addEventListener('click', confirmarCancelacion);
+    }
+
+
+    // ============================================================
+    // INTERACCIÓN 4: Mostrar/ocultar contraseña
+    // Página: registro-alumno.html y registro-psicologo.html
+    // ============================================================
+
+    const togglePasswordBtn = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    function togglePassword() {
+        if (!passwordInput) return;
+        
+        const icon = togglePasswordBtn.querySelector('.material-symbols-outlined');
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            if (icon) icon.textContent = 'visibility_off';
+        } else {
+            passwordInput.type = 'password';
+            if (icon) icon.textContent = 'visibility';
+        }
+    }
+
+    if (togglePasswordBtn) {
+        togglePasswordBtn.addEventListener('click', togglePassword);
     }
 
 });
