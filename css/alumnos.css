@@ -1,111 +1,60 @@
-/* ==========================================
-   ESTILOS MD3 (MATERIAL DESIGN 3) - ALUMNOS
-   ================================---------- */
+/* ==========================================================================
+   MenteSana - Estilos específicos para las vistas del Alumno
+   ========================================================================== */
 
-/* Tarjetas con elevación Material Design 3 */
-.md3-card {
-    background-color: #FFFFFF;
-    border-radius: 16px;
-    border: 1px solid #E2E8F0;
-    box-shadow: 0px 1px 3px rgba(48, 54, 77, 0.05), 0px 4px 8px rgba(48, 54, 77, 0.03);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.md3-card:hover {
-    box-shadow: 0px 4px 12px rgba(48, 54, 77, 0.08);
-}
-
-/* Tarjetas de selección de estado de ánimo (MD3 State Layers) */
+/* Botón de estado emocional seleccionado (Interacción 1) */
 .mood-btn {
-    border: 2px solid #E2E8F0;
-    border-radius: 12px;
-    padding: 16px 8px;
-    background: #FFFFFF;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+    padding: 12px 6px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background-color: #FAFAFC;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .mood-btn:hover {
-    border-color: #5B8DEF;
     background-color: #EEE9FF;
     transform: translateY(-2px);
 }
 
-.mood-emoji {
-    font-size: 32px;
-    display: block;
-    margin-bottom: 4px;
+.mood-btn.selected {
+    border: 3px solid #5B8DEF;
+    background-color: #DCEEFF;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(91, 141, 239, 0.25);
 }
 
-/* Botón flotante o principal estilo MD3 */
+.mood-emoji {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+/* Estilo base para las tarjetas MD3 */
+.md3-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #F0F0F0;
+}
+
+/* Botón principal MD3 */
 .md3-btn-primary {
-    background-color: #5B8DEF;
+    background-color: #9B7FEA;
     color: #FFFFFF;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-weight: 500;
     border: none;
-    box-shadow: 0px 2px 4px rgba(91, 141, 239, 0.25);
-    transition: background-color 0.2s ease;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .md3-btn-primary:hover {
-    background-color: #4878d4;
+    background-color: #8563E3;
     color: #FFFFFF;
-}
-
-/* ==========================================
-   ESTILOS ADICIONALES MD3 - CITAS ALUMNO
-   ================================---------- */
-.table-md3 {
-    vertical-align: middle;
-}
-
-.table-md3 th {
-    background-color: #EEE9FF;
-    color: #4A2E80;
-    font-weight: 600;
-    border-top: none;
-}
-
-.badge-disponible {
-    background-color: rgba(25, 135, 84, 0.1);
-    color: #198754;
-    font-weight: 500;
-    padding: 6px 12px;
-    border-radius: 20px;
-}
-
-.badge-ocupado {
-    background-color: rgba(220, 53, 69, 0.1);
-    color: #dc3545;
-    font-weight: 500;
-    padding: 6px 12px;
-    border-radius: 20px;
-}
-/* ==========================================
-   ESTILOS MD3 - HERRAMIENTAS Y RECURSOS ALUMNO
-   ================================---------- */
-.resource-card {
-    border: none;
-    border-radius: 16px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 1px 3px rgba(48, 54, 77, 0.05), 0px 4px 8px rgba(48, 54, 77, 0.03);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    overflow: hidden;
-    height: 100%;
-}
-
-.resource-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0px 6px 16px rgba(48, 54, 77, 0.08);
-}
-
-.resource-thumb {
-    height: 160px;
-    background-color: #EEE9FF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4A2E80;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(155, 127, 234, 0.4);
 }
