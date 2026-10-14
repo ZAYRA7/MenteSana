@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +37,13 @@
                     <li class="nav-item"><a class="nav-link text-light" href="citas-alumno.html">Agendar Cita</a></li>
                     <li class="nav-item"><a class="nav-link text-light" href="herramientas-alumno.html">Herramientas</a></li>
                     <li class="nav-item"><a class="nav-link text-white active fw-medium" href="eventos-alumno.html">Eventos</a></li>
+                    <!-- Interruptor de tema claro/oscuro -->
+                    <li class="nav-item ms-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="themeSwitch">
+                            <label class="form-check-label text-white" for="themeSwitch">Modo oscuro</label>
+                        </div>
+                    </li>
                     <li class="nav-item ms-lg-3"><a class="btn btn-sm btn-outline-light px-3" href="../index.html">Cerrar Sesión</a></li>
                 </ul>
             </div>
@@ -57,104 +64,129 @@
                     </div>
                 </div>
             </div>
+
             <!-- Pestañas para filtrar por tipo -->
-<ul class="nav nav-pills justify-content-center gap-2 mb-4" role="tablist">
-    <li class="nav-item" role="presentation">
-        <button type="button" class="nav-link nav-link-tab active" data-target="panelConferencia" role="tab" aria-selected="true">Conferencia</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button type="button" class="nav-link nav-link-tab" data-target="panelTaller" role="tab" aria-selected="false">Taller</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button type="button" class="nav-link nav-link-tab" data-target="panelPlatica" role="tab" aria-selected="false">Plática</button>
-    </li>
-</ul>
+            <ul class="nav nav-pills justify-content-center gap-2 mb-4" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button type="button" class="nav-link nav-link-tab active" data-target="panelConferencia" role="tab" aria-selected="true">Conferencia</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button type="button" class="nav-link nav-link-tab" data-target="panelTaller" role="tab" aria-selected="false">Taller</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button type="button" class="nav-link nav-link-tab" data-target="panelPlatica" role="tab" aria-selected="false">Plática</button>
+                </li>
+            </ul>
 
-<div class="tab-content">
+            <div class="tab-content">
 
-    <!-- Panel: Conferencia -->
-    <div id="panelConferencia" class="tab-pane fade show active" role="tabpanel">
-        <div class="row g-4">
-            <!-- Evento 1 -->
-            <div class="col-md-6">
-                <div class="md3-card p-4 d-flex flex-column h-100">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="badge bg-primary bg-opacity-10 text-primary fw-medium px-3 py-2" style="color: #5B8DEF !important;">Conferencia Magistral</span>
-                        <span class="text-muted small d-flex align-items-center gap-1">
-                            <span class="material-symbols-outlined fs-6">calendar_month</span> 28 Oct, 2026
-                        </span>
-                    </div>
-                    <h3 class="h5 fw-bold text-dark mb-2">Manejo efectivo del estrés ante periodos de exámenes</h3>
-                    <p class="text-secondary small mb-3 flex-grow-1">Aprende estrategias psicológicas basadas en la neurociencia para mantener la calma, optimizar tu tiempo de estudio y evitar el burnout académico.</p>
+                <!-- Panel: Conferencia -->
+                <div id="panelConferencia" class="tab-pane fade show active" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="md3-card p-4 d-flex flex-column h-100 card-evento"
+                                 data-titulo="Manejo efectivo del estrés ante periodos de exámenes"
+                                 data-fecha="28 Oct, 2026"
+                                 data-hora="10:00 AM - 11:30 AM"
+                                 data-lugar="Auditorio Principal de la UPP"
+                                 data-descripcion="Aprende estrategias psicológicas basadas en la neurociencia para mantener la calma, optimizar tu tiempo de estudio y evitar el burnout académico.">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <span class="badge bg-primary bg-opacity-10 text-primary fw-medium px-3 py-2" style="color: #5B8DEF !important;">Conferencia Magistral</span>
+                                    <span class="text-muted small d-flex align-items-center gap-1">
+                                        <span class="material-symbols-outlined fs-6">calendar_month</span> 28 Oct, 2026
+                                    </span>
+                                </div>
+                                <h3 class="h5 fw-bold text-dark mb-2">Manejo efectivo del estrés ante periodos de exámenes</h3>
+                                <p class="text-secondary small mb-3 flex-grow-1">Aprende estrategias psicológicas basadas en la neurociencia para mantener la calma, optimizar tu tiempo de estudio y evitar el burnout académico.</p>
 
-                    <div class="p-3 rounded-3 mb-3" style="background-color: #EEE9FF;">
-                        <div class="small fw-bold text-dark d-flex align-items-center gap-1 mb-1">
-                            <span class="material-symbols-outlined fs-6 text-primary">schedule</span> 10:00 AM - 11:30 AM
+                                <div class="p-3 rounded-3 mb-3" style="background-color: #EEE9FF;">
+                                    <div class="small fw-bold text-dark d-flex align-items-center gap-1 mb-1">
+                                        <span class="material-symbols-outlined fs-6 text-primary">schedule</span> 10:00 AM - 11:30 AM
+                                    </div>
+                                    <div class="small text-secondary d-flex align-items-center gap-1">
+                                        <span class="material-symbols-outlined fs-6 text-primary">location_on</span> Auditorio Principal de la UPP
+                                    </div>
+                                </div>
+
+                                <button class="md3-btn-primary w-100 py-2 btn-registrar-evento">Registrarme al Evento</button>
+                            </div>
                         </div>
-                        <div class="small text-secondary d-flex align-items-center gap-1">
-                            <span class="material-symbols-outlined fs-6 text-primary">location_on</span> Auditorio Principal de la UPP
-                        </div>
                     </div>
-
-                    <button class="md3-btn-primary w-100 py-2" data-bs-toggle="modal" data-bs-target="#modalRegistroEvento">Registrarme al Evento</button>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Panel: Taller -->
-    <div id="panelTaller" class="tab-pane fade" role="tabpanel">
-        <div class="row g-4">
-            <!-- Evento 2 -->
-            <div class="col-md-6">
-                <div class="md3-card p-4 d-flex flex-column h-100">
-                    <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="badge bg-success bg-opacity-10 text-success fw-medium px-3 py-2">Taller Vivencial</span>
-                        <span class="text-muted small d-flex align-items-center gap-1">
-                            <span class="material-symbols-outlined fs-6">calendar_month</span> 04 Nov, 2026
-                        </span>
-                    </div>
-                    <h3 class="h5 fw-bold text-dark mb-2">Inteligencia emocional y relaciones interpersonales</h3>
-                    <p class="text-secondary small mb-3 flex-grow-1">Taller interactivo diseñado para mejorar la comunicación asertiva, la empatía y la resolución de conflictos en el entorno universitario y personal.</p>
+                <!-- Panel: Taller -->
+                <div id="panelTaller" class="tab-pane fade" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="md3-card p-4 d-flex flex-column h-100 card-evento"
+                                 data-titulo="Inteligencia emocional y relaciones interpersonales"
+                                 data-fecha="04 Nov, 2026"
+                                 data-hora="01:00 PM - 03:00 PM"
+                                 data-lugar="Edificio de Posgrado, Sala 2"
+                                 data-descripcion="Taller interactivo diseñado para mejorar la comunicación asertiva, la empatía y la resolución de conflictos en el entorno universitario y personal.">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <span class="badge bg-success bg-opacity-10 text-success fw-medium px-3 py-2">Taller Vivencial</span>
+                                    <span class="text-muted small d-flex align-items-center gap-1">
+                                        <span class="material-symbols-outlined fs-6">calendar_month</span> 04 Nov, 2026
+                                    </span>
+                                </div>
+                                <h3 class="h5 fw-bold text-dark mb-2">Inteligencia emocional y relaciones interpersonales</h3>
+                                <p class="text-secondary small mb-3 flex-grow-1">Taller interactivo diseñado para mejorar la comunicación asertiva, la empatía y la resolución de conflictos en el entorno universitario y personal.</p>
 
-                    <div class="p-3 rounded-3 mb-3" style="background-color: #EEE9FF;">
-                        <div class="small fw-bold text-dark d-flex align-items-center gap-1 mb-1">
-                            <span class="material-symbols-outlined fs-6 text-primary">schedule</span> 01:00 PM - 03:00 PM
+                                <div class="p-3 rounded-3 mb-3" style="background-color: #EEE9FF;">
+                                    <div class="small fw-bold text-dark d-flex align-items-center gap-1 mb-1">
+                                        <span class="material-symbols-outlined fs-6 text-primary">schedule</span> 01:00 PM - 03:00 PM
+                                    </div>
+                                    <div class="small text-secondary d-flex align-items-center gap-1">
+                                        <span class="material-symbols-outlined fs-6 text-primary">location_on</span> Edificio de Posgrado, Sala 2
+                                    </div>
+                                </div>
+
+                                <button class="md3-btn-primary w-100 py-2 btn-registrar-evento">Registrarme al Evento</button>
+                            </div>
                         </div>
-                        <div class="small text-secondary d-flex align-items-center gap-1">
-                            <span class="material-symbols-outlined fs-6 text-primary">location_on</span> Edificio de Posgrado, Sala 2
-                        </div>
                     </div>
-
-                    <button class="md3-btn-primary w-100 py-2" data-bs-toggle="modal" data-bs-target="#modalRegistroEvento">Registrarme al Evento</button>
                 </div>
+
+                <!-- Panel: Plática -->
+                <div id="panelPlatica" class="tab-pane fade" role="tabpanel">
+                    <div class="md3-card p-4 text-center">
+                        <span class="material-symbols-outlined fs-1 text-secondary">event_busy</span>
+                        <p class="text-secondary small mb-0">Por el momento no hay pláticas programadas. ¡Vuelve pronto!</p>
+                    </div>
+                </div>
+
             </div>
+
+        </div>
+    </main>
+
+    <!-- Toast de confirmación de registro -->
+    <div id="toastEvento" class="toast align-items-center text-bg-success border-0 position-fixed bottom-0 end-0 m-4" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                ✅ Te has registrado exitosamente al evento.
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
         </div>
     </div>
 
-    <!-- Panel: Plática (sin eventos por ahora) -->
-    <div id="panelPlatica" class="tab-pane fade" role="tabpanel">
-        <div class="md3-card p-4 text-center">
-            <span class="material-symbols-outlined fs-1 text-secondary">event_busy</span>
-            <p class="text-secondary small mb-0">Por el momento no hay pláticas programadas. ¡Vuelve pronto!</p>
-        </div>
-    </div>
-
-</div>
-            
-
-    <!-- Modal MD3 de Registro Exitoso a Evento -->
-    <div class="modal fade" id="modalRegistroEvento" tabindex="-1" aria-hidden="true">
+    <!-- Modal Dinámico de Detalles del Evento -->
+    <div class="modal fade" id="modalEvento" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 rounded-4 shadow">
                 <div class="modal-header border-0 pb-0 px-4 pt-4">
-                    <h5 class="modal-title fw-bold" style="color: #4A2E80;">¡Registro Exitoso!</h5>
+                    <h5 id="modal-titulo" class="modal-title fw-bold" style="color: #4A2E80;"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-4 text-center">
-                    <span class="material-symbols-outlined text-success fs-1 mb-2">check_circle</span>
-                    <p class="text-secondary small mb-3">Te has inscrito correctamente a la plática institucional. Te enviaremos un recordatorio a tu correo.</p>
-                    <button type="button" class="md3-btn-primary w-100 py-2" data-bs-dismiss="modal">Entendido</button>
+                <div class="modal-body p-4">
+                    <p class="mb-2"><strong>📅 Fecha:</strong> <span id="modal-fecha"></span></p>
+                    <p class="mb-2"><strong>⏰ Horario:</strong> <span id="modal-hora"></span></p>
+                    <p class="mb-2"><strong>📍 Lugar:</strong> <span id="modal-lugar"></span></p>
+                    <p class="mb-0 text-secondary"><strong>Descripción:</strong><br><span id="modal-descripcion"></span></p>
+                </div>
+                <div class="modal-footer border-0 pt-0 px-4 pb-4">
+                    <button type="button" class="md3-btn-primary w-100 py-2" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -169,34 +201,7 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Nuestro código JavaScript -->
+    <script src="../js/main.js"></script>
 </body>
-<script>
-    const pestanas = document.querySelectorAll('.nav-link-tab');
-    const paneles = document.querySelectorAll('.tab-pane');
-
-    pestanas.forEach(function (pestana) {
-        pestana.addEventListener('click', function () {
-            // 1. Desactiva todas las pestañas y paneles
-            pestanas.forEach(function (p) {
-                p.classList.remove('active');
-                p.setAttribute('aria-selected', 'false');
-            });
-            paneles.forEach(function (panel) {
-                panel.classList.remove('show', 'active');
-            });
-
-            // 2. Activa la pestaña clicada y su panel
-            pestana.classList.add('active');
-            pestana.setAttribute('aria-selected', 'true');
-
-            const panelActivo = document.getElementById(pestana.dataset.target);
-            panelActivo.classList.add('active');
-
-            // Pequeño retraso para que se vea la transición fade
-            setTimeout(function () {
-                panelActivo.classList.add('show');
-            }, 10);
-        });
-    });
-</script>
 </html>

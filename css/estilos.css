@@ -56,6 +56,65 @@ footer {
     color: #FFFFFF;
 }
 
+/* =====================================================
+   AJUSTES PARA MODO CLARO Y OSCURO — MenteSana
+   ===================================================== */
+
+[data-bs-theme="light"] {
+  --fondo-cuerpo: #ffffff;
+  --fondo-tarjeta: #ffffff;
+  --texto-principal: #212529;
+  --texto-secundario: #6c757d;
+  --grad-ini: #EEE9FF;
+  --grad-fin: #DCEEFF;
+  --fondo-suave: #EEE9FF;
+  --texto-tarjeta: #212529;
+}
+
+[data-bs-theme="dark"] {
+  --fondo-cuerpo: #1a1333;
+  --fondo-tarjeta: #2b2054;
+  --texto-principal: #f0e9ff;
+  --texto-secundario: #c4b8e8;
+  --grad-ini: #2b2054;
+  --grad-fin: #1f1640;
+  --fondo-suave: #3a2a70;
+  --texto-tarjeta: #f0e9ff;
+}
+
+body {
+  background-color: var(--fondo-cuerpo) !important;
+  color: var(--texto-principal) !important;
+}
+
+.md3-card {
+  background-color: var(--fondo-tarjeta) !important;
+  color: var(--texto-tarjeta) !important;
+}
+
+.text-dark {
+  color: var(--texto-principal) !important;
+}
+.text-secondary, .text-muted {
+  color: var(--texto-secundario) !important;
+}
+
+div[style*="background-color: #EEE9FF"],
+div[style*="background: linear-gradient"] {
+  background: linear-gradient(135deg, var(--grad-ini) 0%, var(--grad-fin) 100%) !important;
+}
+.md3-card div[style*="background-color: #EEE9FF"] {
+  background-color: var(--fondo-suave) !important;
+}
+
+[data-bs-theme="dark"] body.bg-light {
+  background-color: var(--fondo-cuerpo) !important;
+}
+
+[data-bs-theme="dark"] main[style*="background"] {
+  background: linear-gradient(135deg, var(--grad-ini) 0%, var(--grad-fin) 100%) !important;
+}
+
 /* ==========================================
    INTERACCIÓN 4: Botón de mostrar/ocultar contraseña
    ========================================== */
