@@ -70,7 +70,7 @@
                     <h3 class="h5 fw-bold mb-3" style="color: #4A2E80;">Tus Citas Programadas</h3>
                     <div class="md3-card overflow-hidden">
                         <div class="table-responsive">
-                            <table class="table table-md3 mb-0">
+                            <table class="table table-md3 mb-0" id="tablaCitasAlumno">
                                 <thead>
                                     <tr>
                                         <th class="ps-4">Especialista</th>
@@ -89,7 +89,14 @@
                                         <td>Área de Psicología (Cubículo 3)</td>
                                         <td><span class="badge-disponible">Confirmada</span></td>
                                         <td class="text-end pe-4">
-                                            <button class="btn btn-sm btn-outline-danger px-3">Cancelar</button>
+                                            <button class="btn btn-sm btn-outline-danger px-3 btn-cancelar-cita" 
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#modalCancelarCita" 
+                                                    data-especialista="Ps. María Fernanda Gómez"
+                                                    data-fecha="Jueves, 22 de Octubre, 2026"
+                                                    data-horario="11:00 AM - 12:00 PM">
+                                                Cancelar
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -210,7 +217,7 @@
         </div>
     </div>
 
-    <!-- Modal MD3: Cita de Emergencia (Con motivo, fecha y hora) -->
+    <!-- Modal MD3: Cita de Emergencia -->
     <div class="modal fade" id="modalEmergencia" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 rounded-4 shadow">
@@ -240,6 +247,47 @@
         </div>
     </div>
 
+    <!-- Modal de Confirmación para Cancelar Cita (Interacción 3) -->
+    <div class="modal fade" id="modalCancelarCita" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header border-0 pb-0 px-4 pt-4">
+                    <h5 class="modal-title fw-bold text-danger">
+                        <span class="material-symbols-outlined align-middle me-1">warning</span>
+                        Confirmar Cancelación
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="text-secondary mb-3">¿Estás seguro de que deseas cancelar la siguiente cita?</p>
+                    <div class="p-3 rounded-3 mb-3" style="background-color: #EEE9FF;">
+                        <div class="fw-bold text-dark" id="cancelarEspecialista"></div>
+                        <div class="small text-secondary" id="cancelarFecha"></div>
+                        <div class="small text-secondary" id="cancelarHorario"></div>
+                    </div>
+                    <p class="text-muted small mb-4">Esta acción no se puede deshacer.</p>
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-outline-secondary w-100" data-bs-dismiss="modal">Volver</button>
+                        <button type="button" class="btn btn-danger w-100" id="btnConfirmarCancelacion">Sí, cancelar cita</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de Notificación (para confirmar cancelación) -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toastCancelacion" class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <span class="material-symbols-outlined align-middle me-1">cancel</span>
+                    <span id="toastCancelacionMensaje">Cita cancelada correctamente.</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer style="background-color: #1a1333;" class="text-white text-center py-3 mt-auto">
         <div class="container small">
@@ -249,5 +297,7 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script propio con las interacciones -->
+    <script src="../js/main.js"></script>
 </body>
 </html>
