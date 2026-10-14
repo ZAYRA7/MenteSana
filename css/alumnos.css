@@ -1,0 +1,111 @@
+/* ==========================================
+   ESTILOS MD3 (MATERIAL DESIGN 3) - ALUMNOS
+   ================================---------- */
+
+/* Tarjetas con elevación Material Design 3 */
+.md3-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0px 1px 3px rgba(48, 54, 77, 0.05), 0px 4px 8px rgba(48, 54, 77, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.md3-card:hover {
+    box-shadow: 0px 4px 12px rgba(48, 54, 77, 0.08);
+}
+
+/* Tarjetas de selección de estado de ánimo (MD3 State Layers) */
+.mood-btn {
+    border: 2px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 16px 8px;
+    background: #FFFFFF;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.mood-btn:hover {
+    border-color: #5B8DEF;
+    background-color: #EEE9FF;
+    transform: translateY(-2px);
+}
+
+.mood-emoji {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Botón flotante o principal estilo MD3 */
+.md3-btn-primary {
+    background-color: #5B8DEF;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0px 2px 4px rgba(91, 141, 239, 0.25);
+    transition: background-color 0.2s ease;
+}
+
+.md3-btn-primary:hover {
+    background-color: #4878d4;
+    color: #FFFFFF;
+}
+
+/* ==========================================
+   ESTILOS ADICIONALES MD3 - CITAS ALUMNO
+   ================================---------- */
+.table-md3 {
+    vertical-align: middle;
+}
+
+.table-md3 th {
+    background-color: #EEE9FF;
+    color: #4A2E80;
+    font-weight: 600;
+    border-top: none;
+}
+
+.badge-disponible {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: #198754;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.badge-ocupado {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+/* ==========================================
+   ESTILOS MD3 - HERRAMIENTAS Y RECURSOS ALUMNO
+   ================================---------- */
+.resource-card {
+    border: none;
+    border-radius: 16px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(48, 54, 77, 0.05), 0px 4px 8px rgba(48, 54, 77, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    height: 100%;
+}
+
+.resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 6px 16px rgba(48, 54, 77, 0.08);
+}
+
+.resource-thumb {
+    height: 160px;
+    background-color: #EEE9FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4A2E80;
+}

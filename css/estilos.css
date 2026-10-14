@@ -1,118 +1,57 @@
-/* ESTILOS - MENTESANA
-   Barra de navegación responsiva + Offcanvas */
-
+/* ==========================================
+   ESTILOS GLOBALES - MENTESANA (UPP) [MD3]
+   ================================---------- */
 :root {
-    --color-primario: #4B0082;
-    --color-secundario: #6A5ACD;
-    --color-acento: #9370DB;
-    --color-claro: #F8F9FA;
-    --color-texto: #333333;
-    --color-fondo: #FFFFFF;
-    --fuente-principal: 'Roboto', sans-serif;
+    --upp-morado-principal: #4A2E80;
+    --upp-morado-lavanda: #9B7FEA;
+    --upp-azul: #5B8DEF;
+    --upp-fondo-suave: #EEE9FF;
+    --upp-texto: #30364D;
 }
 
 body {
-    font-family: var(--fuente-principal);
-    color: var(--color-texto);
-    background-color: var(--color-fondo);
+    font-family: 'Roboto', sans-serif;
+    color: var(--upp-texto);
+    background-color: #FFFFFF;
 }
 
-/* BARRA SUPERIOR */
-.barra-superior {
-    background-color: #2c0052;
-    color: #ffffff;
+/* Navbar MD3 */
+.navbar-brand span {
+    letter-spacing: 0.5px;
 }
 
-.barra-superior a {
-    text-decoration: none;
+/* Tarjetas MD3 */
+.md3-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0px 1px 3px rgba(48, 54, 77, 0.05), 0px 4px 8px rgba(48, 54, 77, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* NAVBAR PRINCIPAL */
-.bg-primario {
-    background-color: var(--color-primario) !important;
+.md3-card:hover {
+    box-shadow: 0px 4px 12px rgba(48, 54, 77, 0.08);
 }
 
-.navbar-brand {
-    font-size: 1.4rem;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.85);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link.active {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* BOTÓN HAMBURGUESA */
-.navbar-toggler {
+/* Botones MD3 */
+.md3-btn-primary {
+    background-color: var(--upp-morado-lavanda);
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 500;
     border: none;
-    outline: none;
+    box-shadow: 0px 2px 4px rgba(155, 127, 234, 0.3);
+    transition: background-color 0.2s ease;
 }
 
-.navbar-toggler:focus {
-    box-shadow: none;
+.md3-btn-primary:hover {
+    background-color: #8769d8;
+    color: #FFFFFF;
 }
 
-/* MENÚ OFFCANVAS */
-.offcanvas {
-    background-color: var(--color-primario);
-}
-
-.offcanvas-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.offcanvas-title {
-    color: #ffffff;
-}
-
-.offcanvas-body .nav-link {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.offcanvas-body .nav-link:hover,
-.offcanvas-body .nav-link.active {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* PIE DE PÁGINA */
-.pie-pagina {
-    background-color: #1a1a2e;
-    color: #ffffff;
-    margin-top: auto;
-}
-
-.pie-pagina h5 {
-    color: var(--color-acento);
-}
-
-.pie-pagina a:hover {
-    color: var(--color-acento) !important;
-}
-
-/* AJUSTES GENERALES */
-section.py-5 {
-    min-height: 60vh;
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-section {
-    flex: 1;
+/* Footer Oscuro MD3 */
+footer {
+    background-color: #1a1333;
+    color: #FFFFFF;
 }

@@ -1,0 +1,32 @@
+/* ==========================================
+   ESTILOS MD3 - MÓDULO PSICÓLOGOS
+   ================================---------- */
+.psych-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0px 1px 3px rgba(48, 54, 77, 0.05), 0px 4px 8px rgba(48, 54, 77, 0.03);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.table-psych th {
+    background-color: #EEE9FF;
+    color: #4A2E80;
+    font-weight: 600;
+    border-top: none;
+}
+
+.md3-btn-danger-soft {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.md3-btn-danger-soft:hover {
+    background-color: rgba(220, 53, 69, 0.2);
+}
