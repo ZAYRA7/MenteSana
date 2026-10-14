@@ -1,3 +1,4 @@
+
 /* ==========================================================================
    MenteSana - Interacciones dinámicas (Práctica Bootstrap + JS)
    Autores: Zayra (Líder Técnica) y Armando (Frontend)
@@ -136,72 +137,48 @@ document.addEventListener('DOMContentLoaded', function() {
     if (toastElement) {
         toastNotificacion = new bootstrap.Toast(toastElement, { delay: 3000 });
     }
+// ============================================================
+    // INTERACCIÓN MÓDULO PSICÓLOGOS: Agregar, Eliminar y Toast
+    // Página: psicologos/horarios.html
+    // ============================================================
 
-    const moodButtons = document.querySelectorAll('.mood-btn');
-    const errorEmocional = document.getElementById('errorEmocional');
-    const fechaInput = document.getElementById('fechaRegistro');
-    let estadoSeleccionado = null;
+    const tablaHorarios = document.getElementById('tablaHorarios');
+    const btnAgregarHorario = document.getElementById('btnAgregarHorario');
+    const toastLiberarElement = document.getElementById('toastLiberar');
+    let toastLiberar;
 
-    function seleccionarEstado(event) {
-        moodButtons.forEach(function(btn) {
-            btn.classList.remove('selected');
-        });
-        event.currentTarget.classList.add('selected');
-        estadoSeleccionado = event.currentTarget.dataset.estado;
-        if (errorEmocional) errorEmocional.classList.add('d-none');
+    if (toastLiberarElement) {
+        toastLiberar = new bootstrap.Toast(toastLiberarElement, { delay: 3000 });
     }
 
-    moodButtons.forEach(function(btn) {
-        btn.addEventListener('click', seleccionarEstado);
-    });
+    // Función nombrada para agregar un nuevo horario a la tabla
+    function manejarAgregarHorario(evento) {
+        evento.preventDefault();
+        
+        if (!tablaHorarios) return;
+        const tbody = tablaHorarios.querySelector('tbody');
+        if (!tbody) return;
 
-    function validarFormulario(event) {
-        event.preventDefault();
-        let esValido = true;
-
-        if (!estadoSeleccionado) {
-            if (errorEmocional) errorEmocional.classList.remove('d-none');
-            esValido = false;
-        }
-
-        if (!fechaInput || !fechaInput.value) {
-            if (fechaInput) {
-                fechaInput.classList.add('is-invalid');
-                fechaInput.classList.remove('is-valid');
-            }
-            esValido = false;
-        } else {
-            fechaInput.classList.remove('is-invalid');
-            fechaInput.classList.add('is-valid');
-        }
-
-        if (esValido) {
-            if (toastNotificacion) {
-                const toastMensaje = document.getElementById('toastMensaje');
-                if (toastMensaje) toastMensaje.textContent = '¡Registro guardado exitosamente!';
-                toastNotificacion.show();
-            }
-            const formRegistro = document.getElementById('formRegistroEmocional');
-            if (formRegistro) formRegistro.reset();
-            moodButtons.forEach(function(btn) {
-                btn.classList.remove('selected');
-            });
-            estadoSeleccionado = null;
-            if (fechaInput) fechaInput.classList.remove('is-valid');
-        }
+        const nuevaFila = document.createElement('tr');
+        nuevaFila.innerHTML = `
+            <td class="ps-4 fw-bold">Miércoles</td>
+            <td>02:00 PM - 03:00 PM</td>
+            <td class="text-muted fst-italic">Sin asignar (Disponible)</td>
+            <td><span class="badge bg-success bg-opacity-10 text-success px-2 py-1">Libre</span></td>
+            <td class="text-end pe-4"><button class="md3-btn-danger-soft btn-liberar">Liberar</button></td>
+        `;
+        
+        tbody.appendChild(nuevaFila);
     }
 
-    const formRegistro = document.getElementById('formRegistroEmocional');
-    if (formRegistro) {
-        formRegistro.addEventListener('submit', validarFormulario);
-    }
-
-    if (fechaInput) {
-        fechaInput.addEventListener('change', function() {
-            if (fechaInput.value) {
-                fechaInput.classList.remove('is-invalid');
-                fechaInput.classList.add('is-valid');
+    // Función nombrada para aplicar delegación de eventos al eliminar/liberar filas y mostrar Toast
+    function manejarDelegacionHorarios(evento) {
+        if (evento.target.classList.contains('btn-liberar')) {
+            const fila = evento.target.closest('tr');
+            if (fila) {
+                fila.remove();
             }
+
         });
     }
 
@@ -224,47 +201,48 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('cancelarHorario').textContent = boton.dataset.horario;
     }
 
-    function confirmarCancelacion() {
-        if (filaAEliminar) {
-            filaAEliminar.remove();
-            filaAEliminar = null;
 
-            const modal = bootstrap.Modal.getInstance(document.getElementById('modalCancelarCita'));
-            if (modal) modal.hide();
 
-            if (toastCancelacion) {
-                toastCancelacion.show();
+            if (toastLiberar) {
+                toastLiberar.show();
             }
         }
     }
 
-    if (btnCancelarCita) {
-        btnCancelarCita.addEventListener('click', prepararCancelacion);
+    if (btnAgregarHorario && tablaHorarios) {
+        btnAgregarHorario.addEventListener('click', manejarAgregarHorario);
+        tablaHorarios.addEventListener('click', manejarDelegacionHorarios);
     }
-    if (btnConfirmarCancelacion) {
-        btnConfirmarCancelacion.addEventListener('click', confirmarCancelacion);
-    }
+
 
     // INTERACCIÓN 4: Mostrar/ocultar contraseña
     const togglePasswordBtn = document.getElementById('togglePassword');
     const passwordInput = document.getElementById('password');
 
-    function togglePassword() {
-        if (!passwordInput) return;
-        
-        const icon = togglePasswordBtn.querySelector('.material-symbols-outlined');
-        
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            if (icon) icon.textContent = 'visibility_off';
-        } else {
-            passwordInput.type = 'password';
-            if (icon) icon.textContent = 'visibility';
-        }
+    // ============================================================
+    // INTERACCIÓN MÓDULO PSICÓLOGOS: Filtrado o búsqueda de alumnos
+    // Página: psicologos/seguimiento.html
+    // ============================================================
+
+    const inputBusqueda = document.getElementById('inputBusqueda');
+    const filasAlumnos = document.querySelectorAll('#tablaAlumnos tbody tr');
+
+    // Función nombrada para filtrar las filas de la tabla según el texto ingresado
+    function manejarFiltradoAlumnos(evento) {
+        const textoBusqueda = evento.target.value.toLowerCase().trim();
+
+        filasAlumnos.forEach(function(fila) {
+            const textoFila = fila.textContent.toLowerCase();
+            
+            if (textoFila.includes(textoBusqueda)) {
+                fila.classList.remove('d-none');
+            } else {
+                fila.classList.add('d-none');
+            }
+        });
     }
 
-    if (togglePasswordBtn) {
-        togglePasswordBtn.addEventListener('click', togglePassword);
+    if (inputBusqueda && filasAlumnos.length > 0) {
+        inputBusqueda.addEventListener('input', manejarFiltradoAlumnos);
+        inputBusqueda.addEventListener('keyup', manejarFiltradoAlumnos);
     }
-
-});
