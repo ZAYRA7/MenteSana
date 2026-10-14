@@ -1,98 +1,28 @@
-/* ===================================================
-   MenteSana - Estilos para Formularios (Morado UPP)
-   =================================================== */
-
-:root {
-    --bs-primary: #9B7FEA;
-    --bs-primary-rgb: 155, 127, 234;
-    --color-oscuro: #30364D;
-    --color-lavanda: #EEE9FF;
+/* ==========================================
+   ESTILOS DE FORMULARIOS - MENTESANA [MD3]
+   ================================---------- */
+.form-container-md3 {
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0px 4px 16px rgba(48, 54, 77, 0.06);
+    padding: 40px;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    color: var(--color-oscuro);
-    background-color: #F8F9FA;
+.form-control, .form-select {
+    border-radius: 10px;
+    padding: 12px 16px;
+    border: 1px solid #CBD5E1;
     font-size: 14px;
 }
 
-/* Tarjeta contenedora de formulario */
-.form-card {
-    background: #FFFFFF;
-    border: none;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-    padding: 24px;
+.form-control:focus, .form-select:focus {
+    border-color: #9B7FEA;
+    box-shadow: 0 0 0 3px rgba(155, 127, 234, 0.15);
 }
 
-/* Botón Morado personalizado */
-.btn-morado {
-    background-color: var(--bs-primary);
-    border-color: var(--bs-primary);
-    color: #FFFFFF;
-    border-radius: 12px;
-    min-height: 48px;
+.form-label {
     font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s;
-}
-
-.btn-morado:hover {
-    background-color: #8869e5;
-    border-color: #8869e5;
-    color: #FFFFFF;
-}
-
-/* Escala Emocional con Emojis */
-.emoji-scale {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-}
-
-.emoji-option {
-    flex: 1;
-    text-align: center;
-}
-
-.emoji-option input[type="radio"] {
-    display: none;
-}
-
-.emoji-label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    background-color: #F8F9FA;
-    border: 2px solid #E9ECEF;
-    border-radius: 12px;
-    cursor: pointer;
-    min-height: 64px;
-    transition: all 0.2s ease;
-}
-
-.emoji-label .emoji {
-    font-size: 24px;
-}
-
-.emoji-label .scale-num {
-    font-size: 12px;
-    font-weight: 500;
-    color: #6C757D;
-}
-
-/* Estado seleccionado de los emojis */
-.emoji-option input[type="radio"]:checked + .emoji-label {
-    border-color: var(--bs-primary);
-    background-color: var(--color-lavanda);
-    color: var(--bs-primary);
-}
-
-.emoji-option input[type="radio"]:checked + .emoji-label .scale-num {
-    color: var(--bs-primary);
-    font-weight: bold;
+    color: #30364D;
+    font-size: 14px;
 }
