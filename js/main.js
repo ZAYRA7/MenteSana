@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // INTERACCIONES DE ARMANDO
     // ============================================================
 
-    // 1. CAMBIO DE TEMA — index.html y eventos-alumno.html
+    // 1. CAMBIO DE TEMA
     const interruptorTema = document.getElementById('themeSwitch');
     const elementoRaiz = document.documentElement;
 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cargarTemaGuardado();
     }
 
-    // 2. NOTIFICACIÓN — alumnos/eventos-alumno.html
+    // 2. NOTIFICACIÓN — eventos-alumno.html
     const botonesRegistrarEvento = document.querySelectorAll('.btn-registrar-evento');
     const contenedorToast = document.getElementById('toastEvento');
     let toastRegistro = null;
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     inicializarToast();
 
-    // 3. MODAL DINÁMICO — alumnos/eventos-alumno.html
+    // 3. MODAL DINÁMICO — eventos-alumno.html
     const tarjetasEvento = document.querySelectorAll('.card-evento');
     const ventanaModal = document.getElementById('modalEvento');
     let modalDetalles = null;
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     inicializarModal();
 
-    // 4. PESTAÑAS DE FILTRADO — alumnos/eventos-alumno.html
+    // 4. PESTAÑAS DE FILTRADO — eventos-alumno.html
     const pestanas = document.querySelectorAll('.nav-link-tab');
     const paneles = document.querySelectorAll('.tab-pane');
 
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // INTERACCIONES DE ZAYRA
     // ============================================================
 
-    // INTERACCIÓN 1 y 2: Validación de formulario y notificación toast
+    // INTERACCIÓN 1 y 2: Validación y toast
     const toastElement = document.getElementById('toastNotificacion');
     let toastNotificacion;
     if (toastElement) {
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // INTERACCIÓN 3: Modal de confirmación para cancelar cita
+    // INTERACCIÓN 3: Modal cancelar cita
     const toastCancelacionElement = document.getElementById('toastCancelacion');
     let toastCancelacion;
     if (toastCancelacionElement) {
