@@ -3,73 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Psicólogos - MenteSana</title>
+    <title>Portal de Psicólogos - MenteSana UPP</title>
+    <!-- Google Fonts Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Google Material Symbols -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- Bootstrap 5 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/formularios.css">
 </head>
-<body class="d-flex flex-column min-vh-100 bg-white">
+<body class="d-flex flex-column min-vh-100 bg-light">
 
+    <!-- Barra Superior -->
     <div style="background-color: #2b1754;" class="text-white text-center py-2 small">
         <span>❤️ Plataforma de Atención Psicológica Estudiantil — Universidad Politécnica de Pachuca (UPP)</span>
     </div>
 
+    <!-- Navbar MD3 -->
     <nav class="navbar navbar-expand-lg px-4 shadow-sm" style="background-color: #4A2E80;">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center gap-2 text-white fw-bold" href="index.html">
                 <img src="img/Logo-MenteSana.png" alt="Logo MenteSana" height="38">
                 <span>MenteSana</span>
             </a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link text-light" href="index.html">Volver al Inicio</a>
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav gap-2 align-items-center">
+                    <li class="nav-item"><a class="nav-link text-light" href="index.html">Volver al Inicio</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <main class="flex-grow-1 d-flex align-items-center py-5" style="background: linear-gradient(135deg, #EEE9FF 0%, #DCEEFF 100%);">
+    <!-- Contenido Principal -->
+    <main class="flex-grow-1 d-flex align-items-center justify-content-center py-5" style="background: linear-gradient(135deg, #EEE9FF 0%, #DCEEFF 100%);">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-5 form-container-md3">
-                    <div class="text-center mb-4">
-                        <h2 class="h3 fw-bold" style="color: #4A2E80;">Portal de Psicólogos</h2>
-                        <p class="text-secondary small">Registro institucional exclusivo para el personal de orientación.</p>
-                    </div>
+                <div class="col-md-6 col-lg-5">
+                    <div class="md3-card p-5">
+                        <h2 class="h4 fw-bold text-center mb-2" style="color: #4A2E80;">Portal de Psicólogos</h2>
+                        <p class="text-secondary text-center small mb-4">Registro institucional exclusivo para el personal de orientación.</p>
 
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label">Nombre Completo (con título)</label>
-                            <input type="text" class="form-control" placeholder="Ej. Ps. María Fernanda Gómez" required>
-                        </div>
+                        <form id="formRegistroPsicologo">
+                            <!-- Nombre Completo con título -->
+                            <div class="mb-3">
+                                <label for="nombrePsicologo" class="form-label fw-medium small">Nombre Completo (con título)</label>
+                                <input type="text" class="form-control" id="nombrePsicologo" placeholder="Ej. Ps. María Fernanda Gómez" required>
+                            </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Correo Institucional UPP / Cédula</label>
-                            <input type="email" class="form-control" placeholder="psicologia@upp.edu.mx" required>
-                        </div>
+                            <!-- Correo Institucional o Cédula -->
+                            <div class="mb-3">
+                                <label for="correoPsicologo" class="form-label fw-medium small">Correo Institucional UPP / Cédula</label>
+                                <input type="text" class="form-control" id="correoPsicologo" placeholder="psicologia@upp.edu.mx" required>
+                            </div>
 
-                        <div class="mb-4">
-                            <label class="form-label">Contraseña Asignada</label>
-                            <input type="password" class="form-control" placeholder="••••••••" required>
-                        </div>
+                            <!-- Contraseña con botón de ojo (INTERACCIÓN 4) -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label fw-medium small">Contraseña Asignada</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword" aria-label="Mostrar u ocultar contraseña">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                </div>
+                            </div>
 
-                        <button type="submit" class="md3-btn-primary w-100 py-2">Ingresar al Panel</button>
-                    </form>
+                            <!-- Botón de envío -->
+                            <button type="submit" class="md3-btn-primary w-100 py-2 mt-3">
+                                <span class="material-symbols-outlined align-middle fs-6 me-1">login</span>
+                                Ingresar al Panel
+                            </button>
 
-                    <div class="text-center mt-3 small">
-                        ¿Eres alumno? <a href="registro-alumno.html" style="color: #4A2E80;" class="fw-medium">Regístrate aquí</a>
+                            <p class="text-center small mt-3 mb-0">
+                                ¿Eres alumno? <a href="registro-alumno.html" style="color: #5B8DEF;">Regístrate aquí</a>
+                            </p>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="text-center py-3 mt-auto">
         <div class="container small">
-            <p class="mb-0">Universidad Politécnica de Pachuca (UPP) — <span style="color: #9B7FEA;">MenteSana</span> &copy; 2026</p>
+            <p class="mb-1">Universidad Politécnica de Pachuca (UPP) — Área de Psicología</p>
+            <p class="mb-0"><span style="color: #9B7FEA;">MenteSana</span> &copy; 2026. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script propio con las interacciones -->
+    <script src="js/main.js"></script>
 </body>
 </html>

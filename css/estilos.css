@@ -55,11 +55,11 @@ footer {
     background-color: #1a1333;
     color: #FFFFFF;
 }
+
 /* =====================================================
    AJUSTES PARA MODO CLARO Y OSCURO — MenteSana
    ===================================================== */
 
-/* Variables: colores según el tema */
 [data-bs-theme="light"] {
   --fondo-cuerpo: #ffffff;
   --fondo-tarjeta: #ffffff;
@@ -82,19 +82,16 @@ footer {
   --texto-tarjeta: #f0e9ff;
 }
 
-/* Aplicamos los colores */
 body {
   background-color: var(--fondo-cuerpo) !important;
   color: var(--texto-principal) !important;
 }
 
-/* Tarjetas MD3 */
 .md3-card {
   background-color: var(--fondo-tarjeta) !important;
   color: var(--texto-tarjeta) !important;
 }
 
-/* Textos */
 .text-dark {
   color: var(--texto-principal) !important;
 }
@@ -102,7 +99,6 @@ body {
   color: var(--texto-secundario) !important;
 }
 
-/* Cajas con fondo lila */
 div[style*="background-color: #EEE9FF"],
 div[style*="background: linear-gradient"] {
   background: linear-gradient(135deg, var(--grad-ini) 0%, var(--grad-fin) 100%) !important;
@@ -110,12 +106,31 @@ div[style*="background: linear-gradient"] {
 .md3-card div[style*="background-color: #EEE9FF"] {
   background-color: var(--fondo-suave) !important;
 }
-/* Fondo principal de la página */
+
 [data-bs-theme="dark"] body.bg-light {
   background-color: var(--fondo-cuerpo) !important;
 }
 
-/* Para la página de inicio que tiene gradiente en el <main> */
 [data-bs-theme="dark"] main[style*="background"] {
   background: linear-gradient(135deg, var(--grad-ini) 0%, var(--grad-fin) 100%) !important;
+}
+
+/* ==========================================
+   INTERACCIÓN 4: Botón de mostrar/ocultar contraseña
+   ========================================== */
+.input-group .btn-outline-secondary {
+    border-color: #ced4da;
+    color: #6c757d;
+    background-color: #FFFFFF;
+}
+
+.input-group .btn-outline-secondary:hover {
+    background-color: var(--upp-fondo-suave);
+    color: var(--upp-morado-principal);
+    border-color: var(--upp-morado-principal);
+}
+
+.input-group .material-symbols-outlined {
+    font-size: 1.2rem;
+    vertical-align: middle;
 }

@@ -43,31 +43,46 @@
                             <h2 class="h4 fw-bold" style="color: #4A2E80;">Programar Evento o Plática Universitaria</h2>
                             <p class="text-secondary small">Crea conferencias o talleres que se visualizarán automáticamente en la sección de eventos del alumno.</p>
                         </div>
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label small fw-medium">Título del Evento</label>
-                                <input type="text" class="form-control" placeholder="Ej. Conferencia sobre manejo de estrés" required>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label small fw-medium">Fecha</label>
-                                    <input type="date" class="form-control" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label small fw-medium">Horario</label>
-                                    <input type="text" class="form-control" placeholder="10:00 AM - 11:30 AM" required>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label small fw-medium">Lugar / Ubicación en la UPP</label>
-                                <input type="text" class="form-control" placeholder="Ej. Auditorio Principal" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label small fw-medium">Descripción del Evento</label>
-                                <textarea class="form-control" rows="3" placeholder="Objetivo y detalles de la plática..." required></textarea>
-                            </div>
-                            <button type="submit" class="md3-btn-primary w-100 py-2">Registrar y Publicar Evento</button>
-                        </form>
+                           <form id="formEvento" novalidate>
+    <div class="mb-3">
+        <label for="tituloEvento" class="form-label small fw-medium">Título del Evento</label>
+        <input type="text" id="tituloEvento" class="form-control" placeholder="Ej. Conferencia sobre manejo de estrés" required>
+        <div class="invalid-feedback">El título debe tener al menos 5 caracteres.</div>
+        <div class="valid-feedback">¡Se ve bien!</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="fechaEvento" class="form-label small fw-medium">Fecha</label>
+            <input type="date" id="fechaEvento" class="form-control" required>
+            <div class="invalid-feedback">Selecciona una fecha de hoy en adelante.</div>
+            <div class="valid-feedback">Fecha válida.</div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="horarioEvento" class="form-label small fw-medium">Horario</label>
+            <input type="text" id="horarioEvento" class="form-control" placeholder="10:00 AM - 11:30 AM" required>
+            <div class="invalid-feedback">Usa el formato 10:00 AM - 11:30 AM.</div>
+            <div class="valid-feedback">Horario válido.</div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="lugarEvento" class="form-label small fw-medium">Lugar / Ubicación en la UPP</label>
+        <input type="text" id="lugarEvento" class="form-control" placeholder="Ej. Auditorio Principal" required>
+        <div class="invalid-feedback">Indica el lugar (mínimo 3 caracteres).</div>
+        <div class="valid-feedback">Lugar válido.</div>
+    </div>
+    <div class="mb-3">
+        <label for="descripcionEvento" class="form-label small fw-medium">Descripción del Evento</label>
+        <textarea id="descripcionEvento" class="form-control" rows="3" placeholder="Objetivo y detalles de la plática..." required></textarea>
+        <div class="invalid-feedback">La descripción debe tener al menos 20 caracteres.</div>
+        <div class="valid-feedback">Descripción válida.</div>
+    </div>
+
+    <div id="mensajeExito" class="alert alert-success d-none" role="alert">
+        ✅ Evento registrado y publicado correctamente.
+    </div>
+
+    <button type="submit" class="md3-btn-primary w-100 py-2">Registrar y Publicar Evento</button>
+</form>
                     </div>
                 </div>
             </div>
@@ -79,4 +94,76 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<script>
+    const form = document.getElementById('formEvento');
+    const tituloEvento = document.getElementById('tituloEvento');
+    const fechaEvento = document.getElementById('fechaEvento');
+    const horarioEvento = document.getElementById('horarioEvento');
+    const lugarEvento = document.getElementById('lugarEvento');
+    const descripcionEvento = document.getElementById('descripcionEvento');
+    const mensajeExito = document.getElementById('mensajeExito');
+
+    // Reglas de validación: cada una devuelve true si el valor es correcto
+    const reglas = {
+        tituloEvento: (v) => v.trim().length >= 5,
+        fechaEvento: (v) => {
+            if (!v) return false;
+            const hoy = new Date();
+            hoy.setHours(0, 0, 0, 0);
+            return new Date(v + 'T00:00:00') >= hoy;
+        },
+        horarioEvento: (v) =>
+            /^(0?[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)\s?-\s?(0?[1-9]|1[0-2]):[0-5][0-9]\s?(AM|PM)$/i.test(v.trim()),
+        lugarEvento: (v) => v.trim().length >= 3,
+        descripcionEvento: (v) => v.trim().length >= 20
+    };
+
+    const campos = [tituloEvento, fechaEvento, horarioEvento, lugarEvento, descripcionEvento];
+
+    // Marca el campo como válido o inválido
+    function validarCampo(campo) {
+        const esValido = reglas[campo.id](campo.value);
+        campo.classList.remove('is-valid', 'is-invalid');
+        campo.classList.add(esValido ? 'is-valid' : 'is-invalid');
+        return esValido;
+    }
+
+    campos.forEach(function (campo) {
+        // blur: valida al salir del campo
+        campo.addEventListener('blur', function () {
+            validarCampo(campo);
+        });
+
+        // input: si el campo ya fue validado, actualiza en tiempo real
+        campo.addEventListener('input', function () {
+            mensajeExito.classList.add('d-none');
+            if (campo.classList.contains('is-valid') || campo.classList.contains('is-invalid')) {
+                validarCampo(campo);
+            }
+        });
+    });
+
+    // submit: valida todo antes de publicar
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        let todoValido = true;
+        campos.forEach(function (campo) {
+            if (!validarCampo(campo)) {
+                todoValido = false;
+            }
+        });
+
+        if (todoValido) {
+            mensajeExito.classList.remove('d-none');
+            form.reset();
+            campos.forEach(function (campo) {
+                campo.classList.remove('is-valid', 'is-invalid');
+            });
+        } else {
+            // Lleva el foco al primer campo con error
+            form.querySelector('.is-invalid').focus();
+        }
+    });
+</script>
 </html>

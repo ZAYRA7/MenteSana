@@ -75,46 +75,57 @@
                         </div>
                         <p class="text-secondary small mb-4">Selecciona el emoticón que mejor describa tu estado de ánimo actual para llevar tu registro diario en la plataforma.</p>
 
-                        <form>
-                            <div class="row g-2 text-center mb-4">
+                        <!-- Formulario de Registro Emocional (Interacciones 1 y 2) -->
+                        <form id="formRegistroEmocional" novalidate>
+                            <div class="row g-2 text-center mb-4" id="escalaEmocional">
                                 <div class="col">
-                                    <div class="mood-btn">
+                                    <div class="mood-btn" data-estado="Muy mal">
                                         <span class="mood-emoji">😫</span>
                                         <small class="fw-medium text-muted">Muy mal</small>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="mood-btn">
+                                    <div class="mood-btn" data-estado="Algo mal">
                                         <span class="mood-emoji">🙁</span>
                                         <small class="fw-medium text-muted">Algo mal</small>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="mood-btn">
+                                    <div class="mood-btn" data-estado="Regular">
                                         <span class="mood-emoji">😐</span>
                                         <small class="fw-medium text-muted">Regular</small>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="mood-btn">
+                                    <div class="mood-btn" data-estado="Bien">
                                         <span class="mood-emoji">🙂</span>
                                         <small class="fw-medium text-muted">Bien</small>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="mood-btn">
+                                    <div class="mood-btn" data-estado="Excelente">
                                         <span class="mood-emoji">😁</span>
                                         <small class="fw-medium text-muted">Excelente</small>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="mb-3">
-                                <label class="form-label fw-medium small text-secondary">¿Quieres agregar alguna nota sobre tu día? (Opcional)</label>
-                                <textarea class="form-control" rows="3" placeholder="Ej. Tuve examen de cálculo, me siento un poco estresado..."></textarea>
+                            <div class="text-danger small mb-2 d-none" id="errorEmocional">
+                                <span class="material-symbols-outlined align-middle fs-6">error</span>
+                                Por favor, selecciona cómo te sientes hoy.
                             </div>
 
-                            <button type="button" class="md3-btn-primary w-100 py-2">
+                            <div class="mb-3">
+                                <label for="fechaRegistro" class="form-label fw-medium small text-secondary">Fecha del registro</label>
+                                <input type="date" class="form-control" id="fechaRegistro" required>
+                                <div class="invalid-feedback">Por favor, selecciona una fecha válida.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="notaRegistro" class="form-label fw-medium small text-secondary">¿Quieres agregar alguna nota sobre tu día? (Opcional)</label>
+                                <textarea class="form-control" id="notaRegistro" rows="3" placeholder="Ej. Tuve examen de cálculo, me siento un poco estresado..."></textarea>
+                            </div>
+
+                            <button type="submit" class="md3-btn-primary w-100 py-2">
                                 <span class="material-symbols-outlined align-middle fs-6 me-1">send</span>
                                 Guardar Registro de Hoy
                             </button>
@@ -173,7 +184,22 @@
         </div>
     </footer>
 
+    <!-- Toast de Notificación (Interacción 2) -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toastNotificacion" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <span class="material-symbols-outlined align-middle me-1">check_circle</span>
+                    <span id="toastMensaje">Registro guardado exitosamente.</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script propio con las interacciones -->
+    <script src="../js/main.js"></script>
 </body>
 </html>
