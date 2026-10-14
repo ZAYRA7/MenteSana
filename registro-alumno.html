@@ -3,128 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Alumnos - MenteSana</title>
+    <title>Registro de Alumnos - MenteSana UPP</title>
+    <!-- Google Fonts Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Google Material Symbols -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- Bootstrap 5 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/formularios.css">
 </head>
-<body class="d-flex flex-column min-vh-100 bg-white">
+<body class="d-flex flex-column min-vh-100 bg-light">
 
+    <!-- Barra Superior -->
     <div style="background-color: #2b1754;" class="text-white text-center py-2 small">
         <span>❤️ Plataforma de Atención Psicológica Estudiantil — Universidad Politécnica de Pachuca (UPP)</span>
     </div>
 
+    <!-- Navbar MD3 -->
     <nav class="navbar navbar-expand-lg px-4 shadow-sm" style="background-color: #4A2E80;">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center gap-2 text-white fw-bold" href="index.html">
                 <img src="img/Logo-MenteSana.png" alt="Logo MenteSana" height="38">
                 <span>MenteSana</span>
             </a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link text-light" href="index.html">Volver al Inicio</a>
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav gap-2 align-items-center">
+                    <li class="nav-item"><a class="nav-link text-light" href="index.html">Volver al Inicio</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <main class="flex-grow-1 py-5" style="background: linear-gradient(135deg, #EEE9FF 0%, #DCEEFF 100%);">
+    <!-- Contenido Principal -->
+    <main class="flex-grow-1 d-flex align-items-center justify-content-center py-5" style="background: linear-gradient(135deg, #EEE9FF 0%, #DCEEFF 100%);">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-7 col-lg-6 form-container-md3">
-                    <div class="text-center mb-4">
-                        <h2 class="h3 fw-bold" style="color: #4A2E80;">Registro de Alumnos</h2>
-                        <p class="text-secondary small">Crea tu cuenta institucional para acceder a asesoría y agendar citas.</p>
-                    </div>
+                <div class="col-md-6 col-lg-5">
+                    <div class="md3-card p-5">
+                        <h2 class="h4 fw-bold text-center mb-2" style="color: #4A2E80;">Registro de Alumnos</h2>
+                        <p class="text-secondary text-center small mb-4">Crea tu cuenta institucional para acceder a asesoría y agendar citas.</p>
 
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label">Matrícula Institucional</label>
-                            <input type="text" class="form-control" placeholder="Ej. 20231234" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Nombre Completo</label>
-                            <input type="text" class="form-control" placeholder="Nombre(s) y Apellidos" required>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Carrera</label>
-                                <select class="form-select" required>
-                                    <option value="">Selecciona tu carrera</option>
-                                    <option value="iti">Ingeniería en Tecnologías de la Información</option>
-                                    <option value="israel">Ingeniería en Sistemas y Redes Inteligentes</option>
-                                    <option value="ime">Ingeniería Mecatrónica</option>
-                                    <option value="lic">Licenciatura en Terapia Física</option>
-                                    <option value="otra">Otra</option>
-                                </select>
+                        <form id="formRegistroAlumno">
+                            <!-- Matrícula -->
+                            <div class="mb-3">
+                                <label for="matricula" class="form-label fw-medium small">Matrícula Institucional</label>
+                                <input type="text" class="form-control" id="matricula" placeholder="Ej. 20231234" required>
                             </div>
 
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Cuatrimestre</label>
-                                <select class="form-select" required>
-                                    <option value="">Cuatrimestre</option>
-                                    <option value="1">1° Cuatrimestre</option>
-                                    <option value="2">2° Cuatrimestre</option>
-                                    <option value="3">3° Cuatrimestre</option>
-                                    <option value="4">4° Cuatrimestre</option>
-                                    <option value="5">5° Cuatrimestre</option>
-                                    <option value="6">6° Cuatrimestre</option>
-                                    <option value="7">7° Cuatrimestre</option>
-                                    <option value="8">8° Cuatrimestre</option>
-                                    <option value="9">9° Cuatrimestre</option>
-                                    <option value="10">10° Cuatrimestre</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Edad</label>
-                                <input type="number" class="form-control" placeholder="Ej. 20" min="17" max="99" required>
+                            <!-- Nombre Completo -->
+                            <div class="mb-3">
+                                <label for="nombreCompleto" class="form-label fw-medium small">Nombre Completo</label>
+                                <input type="text" class="form-control" id="nombreCompleto" placeholder="Nombre(s) y Apellidos" required>
                             </div>
 
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Estado Civil</label>
-                                <select class="form-select" required>
-                                    <option value="">Selecciona</option>
-                                    <option value="soltero">Soltero/a</option>
-                                    <option value="casado">Casado/a</option>
-                                    <option value="union">Unión libre</option>
-                                </select>
+                            <!-- Carrera y Cuatrimestre (2 columnas) -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="carrera" class="form-label fw-medium small">Carrera</label>
+                                    <select class="form-select" id="carrera" required>
+                                        <option value="">Selecciona tu carrera</option>
+                                        <option value="iti">ITI</option>
+                                        <option value="terapia">Terapia Física</option>
+                                        <option value="mecatronica">Mecatrónica</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="cuatrimestre" class="form-label fw-medium small">Cuatrimestre</label>
+                                    <select class="form-select" id="cuatrimestre" required>
+                                        <option value="">Cuatrimestre</option>
+                                        <option value="1">1°</option>
+                                        <option value="2">2°</option>
+                                        <option value="3">3°</option>
+                                        <option value="4">4°</option>
+                                        <option value="5">5°</option>
+                                        <option value="6">6°</option>
+                                        <option value="7">7°</option>
+                                        <option value="8">8°</option>
+                                        <option value="9">9°</option>
+                                        <option value="10">10°</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" placeholder="Mínimo 8 caracteres" required>
-                        </div>
+                            <!-- Edad y Estado Civil (2 columnas) -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="edad" class="form-label fw-medium small">Edad</label>
+                                    <input type="number" class="form-control" id="edad" placeholder="Ej. 20" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="estadoCivil" class="form-label fw-medium small">Estado Civil</label>
+                                    <select class="form-select" id="estadoCivil" required>
+                                        <option value="">Selecciona</option>
+                                        <option value="soltero">Soltero(a)</option>
+                                        <option value="casado">Casado(a)</option>
+                                        <option value="union">Unión Libre</option>
+                                    </select>
+                                </div>
+                            </div>
 
-                        <div class="form-check mb-4">
-                            <input class="form-check-input" type="checkbox" id="privacidad" required style="accent-color: #4A2E80;">
-                            <label class="form-check-label small text-secondary" for="privacidad">
-                                He leído y acepto los <a href="#" style="color: #4A2E80;">acuerdos de privacidad</a> y tratamiento de datos.
-                            </label>
-                        </div>
+                            <!-- Correo Institucional -->
+                            <div class="mb-3">
+                                <label for="correo" class="form-label fw-medium small">Correo Institucional</label>
+                                <input type="email" class="form-control" id="correo" placeholder="usuario@upp.edu.mx" required>
+                            </div>
 
-                        <button type="submit" class="md3-btn-primary w-100 py-2">Completar Registro</button>
-                    </form>
+                            <!-- Contraseña con botón de ojo (INTERACCIÓN 4) -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label fw-medium small">Contraseña</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password" placeholder="Mínimo 8 caracteres" minlength="8" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword" aria-label="Mostrar u ocultar contraseña">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                </div>
+                                <div class="form-text small">Mínimo 8 caracteres.</div>
+                            </div>
 
-                    <div class="text-center mt-3 small">
-                        ¿Ya tienes una cuenta? <a href="index.html" style="color: #4A2E80;" class="fw-medium">Inicia sesión aquí</a>
+                            <!-- Botón de envío -->
+                            <button type="submit" class="md3-btn-primary w-100 py-2 mt-3">
+                                <span class="material-symbols-outlined align-middle fs-6 me-1">how_to_reg</span>
+                                Crear Cuenta
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="text-center py-3 mt-auto">
         <div class="container small">
-            <p class="mb-0">Universidad Politécnica de Pachuca (UPP) — <span style="color: #9B7FEA;">MenteSana</span> &copy; 2026</p>
+            <p class="mb-1">Universidad Politécnica de Pachuca (UPP) — Área de Psicología</p>
+            <p class="mb-0"><span style="color: #9B7FEA;">MenteSana</span> &copy; 2026. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script propio con las interacciones -->
+    <script src="js/main.js"></script>
 </body>
 </html>

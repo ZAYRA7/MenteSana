@@ -55,3 +55,23 @@ footer {
     background-color: #1a1333;
     color: #FFFFFF;
 }
+
+/* ==========================================
+   INTERACCIÓN 4: Botón de mostrar/ocultar contraseña
+   ========================================== */
+.input-group .btn-outline-secondary {
+    border-color: #ced4da;
+    color: #6c757d;
+    background-color: #FFFFFF;
+}
+
+.input-group .btn-outline-secondary:hover {
+    background-color: var(--upp-fondo-suave);
+    color: var(--upp-morado-principal);
+    border-color: var(--upp-morado-principal);
+}
+
+.input-group .material-symbols-outlined {
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
